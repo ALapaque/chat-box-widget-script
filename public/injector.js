@@ -1,8 +1,11 @@
 (function() {
   // Create the iframe
   var iframe = document.createElement('iframe');
-  iframe.style.width = '100%'; // Adjust the size as needed
-  iframe.style.height = '400px'; // Adjust the size as needed
+  iframe.style.position = 'absolute';
+  iframe.style.bottom = '10px';
+  iframe.style.right = '10px';
+  iframe.style.height = '500px'; // Adjust the size as needed
+  iframe.style.width = '300px'; // Adjust the size as needed
   iframe.style.border = 'none';
 
   // Append the iframe to the body
