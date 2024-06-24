@@ -6,20 +6,31 @@
   <title>React Chatbox</title>
 
   <script defer>
-    (function() {
-      var script = document.createElement('script');
-      script.id = 'chat-box-widget';
-      script.src = 'https://alapaque.github.io/chat-box-widget-script/dist/bundle.js';
-      script.onload = function() {
-        console.log('Bundle.js loaded successfully.');
-      };
-      script.onerror = function(e) {
-        console.error('Error loading bundle.js.', e);
-      };
-      document.head.appendChild(script);
-    })();
+    document.addEventListener('DOMContentLoaded', function () {
+      window.restoBookingToken = 'MY_SUPER_TOKEN';
+      window.entityId = '3497';
+      const ID_PREFIX = 'chat-box-widget';
+
+      var iframeContainer = document.createElement('div');
+      iframeContainer.id = `${ID_PREFIX}__container`;
+
+      var iframe = document.createElement('iframe');
+      iframe.id = `${ID_PREFIX}__iframe`;
+      iframe.src = 'https://chat-box-widget-script.vercel.app/';
+      iframe.style.zIndex = '9999';
+      iframe.style.position = 'fixed';
+      iframe.style.bottom = '0';
+      iframe.style.right = '0';
+      iframe.style.height = '500px';
+      iframe.style.width = '350px';
+
+      iframeContainer.appendChild(iframe);
+
+      document.body.appendChild(iframeContainer);
+    });
   </script>
 </head>
 <body>
+<div id='react-chatbox-widget__container'></div>
 </body>
 </html>
